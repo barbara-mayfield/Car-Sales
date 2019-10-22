@@ -1,4 +1,5 @@
 import { ADD_FEATURE } from '../components/actions/AddFeature'
+import { REMOVE_FEATURE } from '../components/actions/RemoveFeature'
 
 export const initialState = {
     additionalPrice: 0,
@@ -26,6 +27,14 @@ export function reducer(state = initialState, action) {
                     ...state.car,
                     features: state.car.features.includes(action.payload) ? 
                     [...state.car.features] : [...state.car.features, action.payload]
+                }
+            }
+        case REMOVE_FEATURE: 
+            return {
+                ...state,
+                car: {
+                    ...state.car,
+                    features: state.car.features.filter(car => car.id !== action.payload.id)
                 }
             }
         default: 
