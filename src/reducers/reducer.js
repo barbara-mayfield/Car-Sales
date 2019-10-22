@@ -1,5 +1,6 @@
 import { ADD_FEATURE } from '../components/actions/AddFeature'
 import { REMOVE_FEATURE } from '../components/actions/RemoveFeature'
+import { UPDATE_TOTAL } from '../components/actions/UpdateTotal'
 
 export const initialState = {
     additionalPrice: 0,
@@ -36,6 +37,11 @@ export function reducer(state = initialState, action) {
                     ...state.car,
                     features: state.car.features.filter(car => car.id !== action.payload.id)
                 }
+            }
+        case UPDATE_TOTAL:
+            return {
+                ...state,
+                additionalPrice: state.additionalPrice + action.payload
             }
         default: 
             return state;
