@@ -1,4 +1,4 @@
-import { bindActionCreators } from "redux";
+import { ADD_FEATURE } from '../components/actions/AddFeature'
 
 export const initialState = {
     additionalPrice: 0,
@@ -19,6 +19,15 @@ export const initialState = {
 
 export function reducer(state = initialState, action) {
     switch (action.type) {
+        case ADD_FEATURE: 
+            return {
+                ...state,
+                car: {
+                    ...state.car,
+                    features: state.car.features.includes(action.payload) ? 
+                    [...state.car.features] : [...state.car.features, action.payload]
+                }
+            }
         default: 
             return state;
     }
