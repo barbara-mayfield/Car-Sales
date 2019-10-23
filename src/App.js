@@ -11,7 +11,6 @@ import AdditionalFeatures from './components/AdditionalFeature/AdditionalFeature
 import Total from './components/Total';
 
 const App = props => {
-  console.log(props, "<- APP PROPS")
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
